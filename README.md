@@ -1,2 +1,2 @@
 # Proyecto_Python
-Mi proyecto de paython
+Mi proyecto de python
