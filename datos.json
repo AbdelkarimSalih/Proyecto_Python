@@ -1,0 +1,33 @@
+{
+    "profesores": {
+        "david": {
+            "asignatura": "Mates"
+        },
+        "karim": {
+            "asignatura": "informatica"
+        },
+        "mohamed": {
+            "asignatura": "inlges"
+        }
+    },
+    "alumnos": {
+        "jero": {
+            "nivel": "primeraEso",
+            "notas": [
+                10.0,
+                6
+            ]
+        },
+        "karim": {
+            "nivel": "terceraEso",
+            "notas": [
+                9,
+                8
+            ]
+        },
+        "abdel": {
+            "nivel": "nivel 5",
+            "notas": []
+        }
+    }
+}
