@@ -8,6 +8,12 @@
         },
         "mohamed": {
             "asignatura": "inlges"
+        },
+        "abdel": {
+            "asignatura": "lengua"
+        },
+        "78": {
+            "asignatura": "2"
         }
     },
     "alumnos": {
@@ -15,19 +21,17 @@
             "nivel": "primeraEso",
             "notas": [
                 10.0,
-                6
+                6,
+                9.0
             ]
         },
         "karim": {
             "nivel": "terceraEso",
             "notas": [
                 9,
-                8
+                8,
+                8.0
             ]
-        },
-        "abdel": {
-            "nivel": "nivel 5",
-            "notas": []
         }
     }
 }
