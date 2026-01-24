@@ -13,7 +13,7 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S',
     
     # 3. Handler 1: Guardar todos los mensajes (INFO+) en un fichero
-    filename='fichero.log',
+    filename='Proyecto_Python/fichero.log',
     filemode='a' 
 )
 # 4. Handler 2: Crear un handler para la consola (stdout)

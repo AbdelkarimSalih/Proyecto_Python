@@ -1,0 +1,6 @@
+2026-01-24 15:17:54 - INFO - Módulo: main - Los datos han sido cargados
+2026-01-24 15:18:29 - ERROR - Módulo: main - El nombre del profesor y asignatura tienen que ser una cadena de letras
+2026-01-24 15:18:56 - WARNING - Módulo: main - Profesor david ya existe su asignatura es:Mates
+2026-01-24 15:19:09 - WARNING - Módulo: main - Persona no encontrada
+2026-01-24 15:19:40 - ERROR - Módulo: main - El nombre del profesor y asignatura tienen que ser una cadena de letras
+2026-01-24 15:19:58 - INFO - Módulo: main - Profesor carlos añadido correctamente
