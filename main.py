@@ -30,9 +30,11 @@ logging.getLogger().addHandler(consola_handler)
 
 datos = {}
 def guardar_datos():
+    """Guarda el diccionario datos en el archivo JSON."""
     with open("Proyecto_Python/datos.json", "w") as f:
         json.dump(datos, f, indent=4) # Guardado formateado
 def cargar_datos():
+    """Carga los datos desde el archivo JSON."""
     global datos
     try:
         with open("Proyecto_Python/datos.json", "r") as f:
@@ -41,6 +43,7 @@ def cargar_datos():
     except FileNotFoundError:
         logging.warning("datos.json no encontrado, se crea uno nuevo")
 def insertar_profesor(nombreProfesor, asignatura):
+    """ Inserta un profesor con su asignatura en el sistema. """
     try:
         if nombreProfesor.strip() == "" or asignatura.strip() == "":
             raise ValueError
@@ -55,6 +58,7 @@ def insertar_profesor(nombreProfesor, asignatura):
         print("Error: Los datos no son correctos")
 
 def insertar_alumno(nombreAlumno, nivel):
+    """Inserta un nuevo alumno con su nivel."""
     try:
         if nombreAlumno.strip() == "" or nivel.strip() == "":
             raise ValueError
@@ -68,12 +72,18 @@ def insertar_alumno(nombreAlumno, nivel):
         logging.error(f"Error: Los datos no son correctos")
 
 def imprimir_profesores():
+    """
+    Muestra por pantalla la lista de profesores y sus asignaturas.
+    """
     print("**** La lista de profesores ****")
     print("Profesor : Asignatura")
     for clave, valor in datos["profesores"].items():
         print(f"{clave} : {valor['asignatura']}")
 
 def imprimir_alumnos():
+    """
+    Muestra por pantalla la lista de alumnos y su nivel.
+    """
     print("**** La lista de alumnos ****")
     print("Alumno : Nivel")
     for clave, valor in datos["alumnos"].items():
@@ -94,6 +104,7 @@ def buscarAlumno(nombre):
         return []
 
 def modificar_Notas(nombre, nota, index):
+    """ Modifica una nota concreta de un alumno. """
     try:
         notaFloat = float(nota)
         if 0 > nota > 10:
@@ -112,6 +123,7 @@ def modificar_Notas(nombre, nota, index):
         logging.error(f"Nota o índice no numérico")
 
 def eliminar_profesor(nombre):
+    """ Elimina un profesor del sistema. """
     if nombre in datos["profesores"]:
         del datos["profesores"][nombre]
         logging.info(f"Profesor {nombre} eliminado")
@@ -122,6 +134,7 @@ def eliminar_profesor(nombre):
     else:
         logging.warning("Persona no encontrada")
 def eliminar_alumno(nombre):
+    """ Elimina un alumno del sistema """
     if nombre in datos["alumnos"]:
         del datos["alumnos"][nombre]
         logging.info(f"Alumno {nombre} eliminado")
@@ -130,6 +143,16 @@ def eliminar_alumno(nombre):
         logging.warning("Persona no encontrada")
 
 def calcular_media_alumno(nombre):
+    """
+    Calcula la media de las notas de un alumno.
+
+    Parámetros:
+    nombre (str): nombre del alumno
+
+    Retorna:
+    str: nombre del alumno y su media con dos decimales
+    None: si el alumno no existe o no tiene notas
+    """
     if nombre not in datos["alumnos"]:
         logging.error(f"El alumno {nombre} no existe")
         return 
