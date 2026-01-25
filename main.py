@@ -128,6 +128,21 @@ def eliminar_alumno(nombre):
         guardar_datos()
     else:
         logging.warning("Persona no encontrada")
+
+def calcular_media_alumno(nombre):
+    if nombre not in datos["alumnos"]:
+        logging.error(f"El alumno {nombre} no existe")
+        return 
+    notas = datos["alumnos"][nombre]["notas"]
+
+    if not notas:
+        logging.warning(f"El alumno {nombre} no tiene notas")
+        print("Este alumno no tiene notas")
+        return None
+
+    media =  round(sum(notas) / len(notas), 2)
+    return nombre+"   :   "+str(media)
+
 print("----------------------------------------------")
 print("         ****Introduce quién eres****")
 print("   - Si eres administrador elige el numero 1")
@@ -148,7 +163,8 @@ if opcion_elegido == 1:
         print("     2- Ver la lista de alumnos")
         print("     3- Añadir o borrar un profesor")
         print("     4- Añadir o borrar un alumno")
-        print("     5- Salir")
+        print("     5- ver la media de los alumnos")
+        print("     6- Salir")
         try:
             opcion_administrador = int(input("Escribe el numero de tu opcion: "))
         except ValueError:
@@ -180,8 +196,18 @@ if opcion_elegido == 1:
                 else:
                     logging.error(f"El nombre del alumno y su nivel tienen que ser una cadena de letras")
             else:
-                nombre_alumno = input("Introduce el nombre del alumno que quieres borrar ")
+                nombre_alumno = input("Introduce el nombre del alumno que quieres borrar: ")
                 eliminar_alumno(nombre_alumno)
+        elif opcion_administrador == 5:
+            opcion_solo_todos = input("¿Quieres ver la media de todos los alumnos o un especifico? (todos/uno): ")
+            if opcion_solo_todos == "todos":
+                print(f"Alumno   :   Media")
+                for clave, valor in datos["alumnos"].items():
+                    print(calcular_media_alumno(clave))
+            else:
+                nombre = input("?Introduce el nombre del alumno que quieres ver su media: ")
+                print(f"Alumno   :   Media")
+                print(calcular_media_alumno(nombre))
         else:
             break
 
@@ -192,7 +218,8 @@ elif opcion_elegido == 2:
         print("     2- Añadir o borrar notas de alumnos")
         print("     3- Ver las notas de todos los alumnos")
         print("     4- Modificar la nota de un alumno")
-        print("     5- Salir")
+        print("     5- Ver la notas de los alumnos")
+        print("     6- Salir")
         try:
             opcion_profesor = int(input("Escribe el numero de tu opcion: "))
         except ValueError:
@@ -238,13 +265,24 @@ elif opcion_elegido == 2:
             nota = input("Introduce la nota ")
             pos = input("Introduce la posición de la nota, la primera es 0 ")
             modificar_Notas(nombreAlumno, nota, pos)
+        elif opcion_profesor == 5:
+            opcion_solo_todos = input("¿Quieres ver la media de todos los alumnos o un especifico? (todos/uno): ")
+            if opcion_solo_todos == "todos":
+                print(f"Alumno   :   Media")
+                for clave, valor in datos["alumnos"].items():
+                    print(calcular_media_alumno(clave))
+            else:
+                nombre = input("?Introduce el nombre del alumno que quieres ver su media: ")
+                print(f"Alumno   :   Media")
+                print(calcular_media_alumno(nombre))
         else:
             break
 else:
     while True:
         print("**** Espacio alumno ****")
         print("     1- Ver mis notas")
-        print("     2- Salir")
+        print("     2- Ver la media")
+        print("     3- Salir")
         try:
             opcion_alumno = int(input("Escribe el numero de tu opcion: "))
         except ValueError:
@@ -255,5 +293,9 @@ else:
             notas = buscarAlumno(nombre)
             for n in notas:
                 print(n)
+        elif opcion_alumno == 2:
+            nombre = input("?Introduce tu Nombre: ")
+            print(f"Alumno   :   Media")
+            print(calcular_media_alumno(nombre))
         else:
             break
