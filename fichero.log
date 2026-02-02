@@ -19,3 +19,56 @@
 2026-01-25 12:45:19 - INFO - Módulo: main - Los datos han sido cargados
 2026-01-25 12:46:11 - INFO - Módulo: main - Los datos han sido cargados
 2026-01-25 12:48:04 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-02 13:38:07 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 13:41:58 - ERROR - Módulo: test - La opcion elegido tiene que estar entre 1 y 5
+2026-02-02 13:42:07 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 13:42:29 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 13:43:59 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 13:44:51 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 13:47:03 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 13:58:53 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 13:59:45 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 13:59:59 - INFO - Módulo: test - Profesor jesus añadido correctamente
+2026-02-02 14:03:24 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:05:07 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:05:26 - INFO - Módulo: test - Alumno carlos añadido correctamente
+2026-02-02 14:09:36 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:10:56 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:11:07 - INFO - Módulo: test - Profesor karim eliminado
+2026-02-02 14:15:55 - INFO - Módulo: test - Alumno karim eliminado
+2026-02-02 14:16:16 - WARNING - Módulo: test - Persona no encontrada
+2026-02-02 14:16:42 - INFO - Módulo: test - Profesor abdel eliminado
+2026-02-02 14:17:27 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:18:40 - ERROR - Módulo: test - La opcion elegido tiene que estar entre 1 y 5
+2026-02-02 14:30:53 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:31:19 - INFO - Módulo: test - Profesor abdel eliminado
+2026-02-02 14:31:51 - INFO - Módulo: test - Alumno carlos eliminado
+2026-02-02 14:41:58 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:44:08 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:44:30 - ERROR - Módulo: test - El alumno karim no existe
+2026-02-02 14:55:46 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:56:24 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:59:02 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:59:12 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 14:59:23 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:06:41 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:07:07 - WARNING - Módulo: test - Persona no encontrada
+2026-02-02 15:07:29 - INFO - Módulo: test - Alumno david añadido correctamente
+2026-02-02 15:07:55 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:08:27 - INFO - Módulo: test - Has añadido una nota a todos los alumnos con exito
+2026-02-02 15:08:44 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:09:15 - INFO - Módulo: test - Has añadido una nota a jero con exito
+2026-02-02 15:09:35 - INFO - Módulo: test - Has añadido una nota a david con exito
+2026-02-02 15:13:01 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:13:37 - INFO - Módulo: test - La nota de Alumno david se ha borrado con exito
+2026-02-02 15:14:03 - INFO - Módulo: test - Has añadido una nota a david con exito
+2026-02-02 15:16:05 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:16:16 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:40:46 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:51:06 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:53:04 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:53:16 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:54:33 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:57:00 - INFO - Módulo: test - Los datos han sido cargados
+2026-02-02 15:58:11 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-02 15:58:42 - INFO - Módulo: main - Profesor juan añadido correctamente

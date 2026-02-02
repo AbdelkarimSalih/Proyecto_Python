@@ -3,34 +3,32 @@
         "david": {
             "asignatura": "Mates"
         },
-        "karim": {
-            "asignatura": "informatica"
-        },
         "mohamed": {
             "asignatura": "inlges"
         },
-        "abdel": {
-            "asignatura": "lengua"
-        },
         "carlos": {
             "asignatura": "ingles"
+        },
+        "jesus": {
+            "asignatura": "servidor"
+        },
+        "juan": {
+            "asignatura": "mates"
         }
     },
     "alumnos": {
         "jero": {
             "nivel": "primeraEso",
             "notas": [
-                10.0,
-                6,
-                9.0
+                8.0,
+                4.0
             ]
         },
-        "karim": {
-            "nivel": "terceraEso",
+        "david": {
+            "nivel": "2daw",
             "notas": [
-                9,
-                8,
-                8.0
+                7.0,
+                7.0
             ]
         }
     }
