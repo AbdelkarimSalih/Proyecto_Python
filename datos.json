@@ -6,30 +6,34 @@
         "mohamed": {
             "asignatura": "inlges"
         },
-        "carlos": {
-            "asignatura": "ingles"
-        },
         "jesus": {
             "asignatura": "servidor"
         },
-        "juan": {
-            "asignatura": "mates"
+        "Pedro": {
+            "asignatura": "Python"
+        },
+        "Alberto": {
+            "asignatura": "BD"
         }
     },
     "alumnos": {
-        "jero": {
-            "nivel": "primeraEso",
-            "notas": [
-                8.0,
-                4.0
-            ]
-        },
         "david": {
+            "nivel": "daw",
+            "notas": [
+                10.0,
+                6.0,
+                4.0
+            ],
+            "tipo": "normal"
+        },
+        "Alvaro": {
             "nivel": "2daw",
             "notas": [
+                5.0,
                 7.0,
-                7.0
-            ]
+                7.5
+            ],
+            "tipo": "normal"
         }
     }
 }

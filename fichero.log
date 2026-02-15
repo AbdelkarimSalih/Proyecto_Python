@@ -72,3 +72,78 @@
 2026-02-02 15:57:00 - INFO - Módulo: test - Los datos han sido cargados
 2026-02-02 15:58:11 - INFO - Módulo: main - Los datos han sido cargados
 2026-02-02 15:58:42 - INFO - Módulo: main - Profesor juan añadido correctamente
+2026-02-14 18:24:59 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-14 19:19:29 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-14 19:20:15 - INFO - Módulo: main - Profesor Pedro añadido correctamente
+2026-02-14 19:20:38 - INFO - Módulo: main - Profesor carlos eliminado
+2026-02-14 19:20:59 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-14 19:21:28 - INFO - Módulo: main - Alumno Alvaro añadido correctamente
+2026-02-14 19:21:48 - WARNING - Módulo: main - El alumno Alvaro no tiene notas
+2026-02-14 19:23:44 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-14 19:23:58 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-14 19:24:02 - ERROR - Módulo: main - La opcion elegido tiene que estar entre 1 y 3
+2026-02-14 19:24:17 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-14 19:24:50 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-14 19:25:22 - INFO - Módulo: main - Has añadido una nota a Alvaro con exito
+2026-02-14 19:26:00 - INFO - Módulo: main - Has añadido una nota a Alvaro con exito
+2026-02-14 19:26:24 - INFO - Módulo: main - Has añadido una nota a todos los alumnos con exito
+2026-02-14 19:28:35 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-14 19:28:52 - INFO - Módulo: main - Los datos han sido cargados
+2026-02-15 10:27:57 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:30:14 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:31:03 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:31:33 - INFO - Módulo: main - Profesor Alberto añadido correctamente
+2026-02-15 10:32:25 - INFO - Módulo: main - Profesor juan eliminado
+2026-02-15 10:32:55 - INFO - Módulo: main - Alumno karim añadido correctamente
+2026-02-15 10:33:10 - INFO - Módulo: main - Alumno karim eliminado
+2026-02-15 10:34:12 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:34:27 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:35:04 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:36:43 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:37:02 - INFO - Módulo: main - Has añadido una nota a todos los alumnos con exito
+2026-02-15 10:37:21 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:37:55 - INFO - Módulo: main - La nota 4.0 del alumno jero se ha borrado con éxito
+2026-02-15 10:38:23 - INFO - Módulo: main - La nota 4.0 del alumno david se ha borrado con éxito
+2026-02-15 10:38:40 - INFO - Módulo: main - La nota 5.0 del alumno Alvaro se ha borrado con éxito
+2026-02-15 10:39:13 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:40:55 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:41:42 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:53:52 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:54:20 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 10:54:29 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 11:19:08 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 11:21:24 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 11:26:57 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 11:28:51 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 11:39:49 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 11:49:51 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 11:51:39 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 15:44:02 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 15:44:22 - INFO - Módulo: main - Alumno david añadido correctamente
+2026-02-15 15:45:03 - INFO - Módulo: main - Alumno Alvaro añadido correctamente
+2026-02-15 15:45:39 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 15:46:21 - INFO - Módulo: main - Has añadido una nota a todos los alumnos con exito
+2026-02-15 15:46:38 - INFO - Módulo: main - Has añadido una nota a todos los alumnos con exito
+2026-02-15 15:56:08 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 15:57:18 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 15:58:37 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 15:59:08 - INFO - Módulo: main - Profesor karim añadido correctamente
+2026-02-15 15:59:25 - INFO - Módulo: main - Profesor karim eliminado
+2026-02-15 15:59:44 - INFO - Módulo: main - Alumno karim añadido correctamente
+2026-02-15 16:00:06 - WARNING - Módulo: main - Persona no encontrada
+2026-02-15 16:00:36 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 16:00:52 - INFO - Módulo: main - Alumno karim eliminado
+2026-02-15 16:01:31 - INFO - Módulo: main - Alumno karim añadido correctamente
+2026-02-15 16:01:40 - INFO - Módulo: main - Alumno karim eliminado
+2026-02-15 16:03:14 - INFO - Módulo: main - Alumno karim añadido correctamente
+2026-02-15 16:04:22 - INFO - Módulo: main - Alumno karim eliminado
+2026-02-15 16:04:47 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 16:05:02 - INFO - Módulo: main - Alumno karim añadido correctamente
+2026-02-15 16:05:24 - INFO - Módulo: main - Alumno karim eliminado
+2026-02-15 16:05:44 - INFO - Módulo: main - Alumno karim añadido correctamente
+2026-02-15 16:06:01 - INFO - Módulo: main - Alumno karim eliminado
+2026-02-15 16:06:35 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 16:06:45 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 16:07:23 - INFO - Módulo: main - Has añadido una nota a todos los alumnos con exito
+2026-02-15 16:07:34 - INFO - Módulo: main - Datos cargados correctamente
+2026-02-15 16:08:51 - INFO - Módulo: main - Datos cargados correctamente

@@ -10,14 +10,14 @@ logging.basicConfig(
     
     # 2. Formato de los mensajes
     format='%(asctime)s - %(levelname)s - Módulo: %(module)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
+    datefmt='%Y-%m-%d %H:%M:%S', 
     
     # 3. Handler 1: Guardar todos los mensajes (INFO+) en un fichero
     filename='Proyecto_Python/fichero.log',
     filemode='a' 
 )
 # 4. Handler 2: Crear un handler para la consola (stdout)
-# Este handler será más estricto y solo mostrará WARNING y superiores
+# Este handler será más estricto y solo mostrará INFO y superiores
 consola_handler = logging.StreamHandler(sys.stdout)
 consola_handler.setLevel(logging.INFO) # Establece su propio umbral
 consola_handler.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))
@@ -29,7 +29,34 @@ logging.getLogger().addHandler(consola_handler)
 class Persona:
     def __init__(self, nombre):
         self.nombre = nombre
+    def calcular_media_alumno(self,nombre):
+        """
+        Calcula la media de las notas de un alumno.
 
+        Parámetros:
+        nombre (str): nombre del alumno
+
+        Retorna:
+        str: nombre del alumno y su media con dos decimales
+        None: si el alumno no existe o no tiene notas
+        """
+        if nombre not in datos["alumnos"]:
+            logging.error(f"El alumno {nombre} no existe")
+            return 
+        notas = datos["alumnos"][nombre].notas
+
+        if not notas:
+            logging.warning(f"El alumno {nombre} no tiene notas")
+            print("Este alumno no tiene notas")
+            return None
+
+        media =  round(sum(notas) / len(notas), 2)
+        return nombre+"   :   "+str(media)
+    
+    def imprimir_Media_alumnos(self):
+        print(f"Alumno   :   Media")
+        for clave, valor in datos["alumnos"].items():
+            print(self.calcular_media_alumno(clave))
 class Administrador(Persona):
     def __init__(self, nombre):
         super().__init__(nombre)
@@ -41,10 +68,7 @@ class Administrador(Persona):
         print("**** La lista de profesores ****")
         print("Profesor : Asignatura")
         for clave, valor in datos["profesores"].items():
-            print(f"{clave} : {valor['asignatura']}")
-
-    def asignaturaAsignada(self):
-        return {"asignatura": self.asignatura}
+            print(f"{clave} : {valor.asignatura}")
     
     def imprimir_alumnos(self):
         """
@@ -53,28 +77,24 @@ class Administrador(Persona):
         print("**** La lista de alumnos ****")
         print("Alumno : Nivel")
         for clave, valor in datos["alumnos"].items():
-            print(f"{clave} : {valor['nivel']}")
+            print(f"{clave} : {valor.nivel}")
     
     def insertar_profesor(self,profesor):
         """ Inserta un profesor con su asignatura en el sistema. """
-        try:
-            if profesor.nombre in datos["profesores"]:
-                logging.warning(f"Profesor {profesor.nombre} ya existe su asignatura es:{datos["profesores"][profesor.nombre]["asignatura"]}")
-                return
-            datos["profesores"][profesor.nombre] = {"asignatura": profesor.asignatura}
-            guardar_datos()
-            logging.info(f"Profesor {profesor.nombre} añadido correctamente")
-        except ValueError:
-            logging.error(f"Error: Los datos no son correctos")
-            print("Error: Los datos no son correctos")
+        if profesor.nombre in datos["profesores"]:
+            logging.warning(f"Profesor {profesor.nombre} ya existe su asignatura es:{datos['profesores'][profesor.nombre].asignatura}")
+            return
+        datos["profesores"][profesor.nombre] = profesor
+        guardar_datos()
+        logging.info(f"Profesor {profesor.nombre} añadido correctamente")
 
     def insertar_alumno(self,alumno):
         """Inserta un nuevo alumno con su nivel."""
         try:
             if alumno.nombre in datos["alumnos"]:
-                logging.warning(f"Alumno {alumno.nombre} ya existe y su nivel es:{datos["alumnos"][alumno.nombre]["nivel"]}")
+                logging.warning(f"Alumno {alumno.nombre} ya existe y su nivel es:{datos['alumnos'][alumno.nombre].nivel}")
                 return
-            datos["alumnos"][alumno.nombre] = {"nivel": alumno.nivel, "notas": []}
+            datos["alumnos"][alumno.nombre] = alumno
             guardar_datos()
             logging.info(f"Alumno {alumno.nombre} añadido correctamente")
         except ValueError:
@@ -86,56 +106,25 @@ class Administrador(Persona):
             del datos["profesores"][nombre]
             guardar_datos()
             logging.info(f"Profesor {nombre} eliminado")
-        elif nombre in datos["alumnos"]:
-            del datos["alumnos"][nombre]
-            logging.info(f"Alumno {nombre} eliminado")
         else:
             logging.warning("Persona no encontrada")
-    
+            
     def eliminar_alumno(self,nombre):
         """ Elimina un alumno del sistema """
-        if nombre in datos["alumnos"]:
+        if nombre in datos.get("alumnos", {}):
             del datos["alumnos"][nombre]
             logging.info(f"Alumno {nombre} eliminado")
             guardar_datos()
         else:
             logging.warning("Persona no encontrada")
-    def calcular_media_alumno(self,nombre):
-        """
-        Calcula la media de las notas de un alumno.
-
-        Parámetros:
-        nombre (str): nombre del alumno
-
-        Retorna:
-        str: nombre del alumno y su media con dos decimales
-        None: si el alumno no existe o no tiene notas
-        """
-        if nombre not in datos["alumnos"]:
-            logging.error(f"El alumno {nombre} no existe")
-            return 
-        notas = datos["alumnos"][nombre]["notas"]
-
-        if not notas:
-            logging.warning(f"El alumno {nombre} no tiene notas")
-            print("Este alumno no tiene notas")
-            return None
-
-        media =  round(sum(notas) / len(notas), 2)
-        return nombre+"   :   "+str(media)
     
-    def imprimir_Media_alumnos(self):
-        print(f"Alumno   :   Media")
-        for clave, valor in datos["alumnos"].items():
-            print(self.calcular_media_alumno(clave))
 
 class Profesor(Persona):
     def __init__(self, nombre, asignatura):
         super().__init__(nombre)
         self.asignatura = asignatura
 
-    def asignaturaAsignada(self):
-        return {"asignatura": self.asignatura}
+
 
     def imprimir_alumnos(self):
         """
@@ -144,12 +133,17 @@ class Profesor(Persona):
         print("**** La lista de alumnos ****")
         print("Alumno : Nivel")
         for clave, valor in datos["alumnos"].items():
-            print(f"{clave} : {valor['nivel']}")
+            print(f"{clave} : {valor.nivel}")
     def anadir_notas(self,nombre=""):
         if(nombre.strip() != ""):
             if nombre in datos["alumnos"]:
-                nota = float(input("Introduce la nota de este alumno "))
-                datos["alumnos"][nombre]["notas"].append(nota)
+                try:
+                    nota = float(input("Introduce la nota de este alumno: "))
+                except ValueError:
+                    logging.error("Tienes que introducir un número")
+                    print("Entrada inválida. La nota debe ser un número.")
+                    return
+                datos["alumnos"][nombre].notas.append(nota)
                 guardar_datos()
                 logging.info(f"Has añadido una nota a {nombre} con exito")
             else:
@@ -158,80 +152,77 @@ class Profesor(Persona):
             print("**** Añadir nota a todos los alumnos ****")
             for clave, valor in datos["alumnos"].items():
                 print(f"Alumno : {clave}")
-                valor["notas"].append(float(input("Introduce la nota ")))
+                try:
+                    nota = float(input("Introduce la nota: "))
+                except ValueError:
+                    logging.error(f"Entrada inválida para {clave}, se omite la nota")
+                    print(f"Entrada inválida para {clave}, se omite esta nota.")
+                    continue  # sigue con el siguiente alumno
+                valor.notas.append(nota)
             guardar_datos()
             logging.info(f"Has añadido una nota a todos los alumnos con exito")
     def borrar_notas(self):
-        alumno =  input("¿Introduce el alumno que quieres borrar su nota? ")
-        posicion_nota = int(input("Introduce la posicion de la nota que quieres borra.Ojo la posicion empeza de 0:"))
-        del datos["alumnos"][alumno]["notas"][posicion_nota]
-        logging.info(f"La nota de Alumno {alumno} se ha borrado con exito")
+        alumno = input("¿Introduce el alumno que quieres borrar su nota? ").strip()
+        if alumno not in datos["alumnos"]:
+            logging.error(f"El alumno {alumno} no existe")
+            print("El alumno no existe")
+            return
+        try:
+            posicion_nota = int(input("Introduce la posición de la nota que quieres borrar (comienza en 0): "))
+        except ValueError:
+            logging.error("La posición debe ser un número entero")
+            print("La posición debe ser un número entero")
+            return
+
+        notas_alumno = datos["alumnos"][alumno].notas
+        if posicion_nota < 0 or posicion_nota >= len(notas_alumno):
+            logging.error("Índice de nota incorrecto")
+            print("Índice de nota incorrecto")
+            return
+
+        # Borrar nota de forma segura
+        nota_borrada = notas_alumno.pop(posicion_nota)
+        guardar_datos()
+        logging.info(f"La nota {nota_borrada} del alumno {alumno} se ha borrado con éxito")
+        print(f"La nota {nota_borrada} del alumno {alumno} se ha borrado con éxito")
     
     def imprimir_notas(self):
         print("**** Notas de los alumnos ****")
         for clave, valor in datos["alumnos"].items():
             print(f"+++ Notas de {clave} +++")
-            for nota in valor["notas"]:
+            for nota in valor.notas:
                 print(nota)
     
     def modificar_Notas(self,nombre, nota, index):
         """ Modifica una nota concreta de un alumno. """
         try:
             notaFloat = float(nota)
-            if 0 > nota > 10:
+            if notaFloat< 0 or notaFloat > 10:
                 logging.warning(f"La nota tiene que estar entre 0 y 10")
                 print("La nota tiene que estar entre 0 y 10")
+                return
             index = int(index)
             if nombre not in datos["alumnos"]:
                 logging.error("Alumno no existe")
                 return
-            if index < 0 or index >= len(datos["alumnos"][nombre]["notas"]):
+            if index < 0 or index >= len(datos["alumnos"][nombre].notas):
                 logging.error("Índice de nota incorrecto")
                 return
-            datos["alumnos"][nombre]["notas"][index] = notaFloat
+            datos["alumnos"][nombre].notas[index] = notaFloat
             guardar_datos()
         except ValueError:
             logging.error(f"Nota o índice no numérico")
-    def calcular_media_alumno(self,nombre):
-        """
-        Calcula la media de las notas de un alumno.
-
-        Parámetros:
-        nombre (str): nombre del alumno
-
-        Retorna:
-        str: nombre del alumno y su media con dos decimales
-        None: si el alumno no existe o no tiene notas
-        """
-        if nombre not in datos["alumnos"]:
-            logging.error(f"El alumno {nombre} no existe")
-            return 
-        notas = datos["alumnos"][nombre]["notas"]
-
-        if not notas:
-            logging.warning(f"El alumno {nombre} no tiene notas")
-            print("Este alumno no tiene notas")
-            return None
-
-        media =  round(sum(notas) / len(notas), 2)
-        return nombre+"   :   "+str(media)
     
-    def imprimir_Media_alumnos(self):
-        print(f"Alumno   :   Media")
-        for clave, valor in datos["alumnos"].items():
-            print(self.calcular_media_alumno(clave))
-
-class Alumno(Persona):
+class Alumno:
     def __init__(self, nombre, nivel, notas=None):
-        super().__init__(nombre)
+        self.nombre = nombre
         self.nivel = nivel
-        self.notas = notas if notas else []
+        self.notas = notas if notas is not None else []
     def imprimir_misNotas(self):
         print("***Mis Notas ***")
         for n in self.notas:
             print(n)
     def calcular_media_alumno(self):
-
         if not self.notas:
             logging.warning(f"El alumno {self.nombre} no tiene notas")
             print("Este alumno no tiene notas")
@@ -239,39 +230,76 @@ class Alumno(Persona):
 
         media =  round(sum(self.notas) / len(self.notas), 2)
         return self.nombre+"   :   "+str(media)
+class AlumnoEspecial(Alumno):
+    def __init__(self, nombre, nivel, beca):
+        super().__init__(nombre, nivel)
+        self.beca = beca 
 
 datos = {}
 def guardar_datos():
-    """Guarda el diccionario datos en el archivo JSON."""
+    datos_json = {"profesores": {}, "alumnos": {}}
+
+    for nombre, profesor in datos["profesores"].items():
+        datos_json["profesores"][nombre] = {"asignatura": profesor.asignatura}
+
+    for nombre, alumno in datos["alumnos"].items():
+        if isinstance(alumno, AlumnoEspecial):
+            datos_json["alumnos"][nombre] = {
+                "nivel": alumno.nivel,
+                "notas": alumno.notas,
+                "beca": alumno.beca,
+                "tipo": "especial"
+            }
+        else:
+            datos_json["alumnos"][nombre] = {
+                "nivel": alumno.nivel,
+                "notas": alumno.notas,
+                "tipo": "normal"
+            }
+
     with open("Proyecto_Python/datos.json", "w") as f:
-        json.dump(datos, f, indent=4) # Guardado formateado
+        json.dump(datos_json, f, indent=4)
+
 def cargar_datos():
     """Carga los datos desde el archivo JSON."""
     global datos
+    datos = {"profesores": {}, "alumnos": {}}
+
     try:
         with open("Proyecto_Python/datos.json", "r") as f:
-            datos = json.load(f)
-            logging.info(f"Los datos han sido cargados")
+            datos_json = json.load(f)
+
+            # Reconstruir profesores como objetos
+            for nombre, info in datos_json.get("profesores", {}).items():
+                datos["profesores"][nombre] = Profesor(nombre, info["asignatura"])
+
+            # Reconstruir alumnos como objetos
+            for nombre, info in datos_json.get("alumnos", {}).items():
+                if info.get("tipo") == "especial":
+                    alumno = AlumnoEspecial(nombre, info["nivel"], info.get("beca", ""))
+                else:
+                    alumno = Alumno(nombre, info["nivel"], info.get("notas", []))
+                alumno.notas = info.get("notas", [])
+                datos["alumnos"][nombre] = alumno
+
+            logging.info("Datos cargados correctamente")
     except FileNotFoundError:
         logging.warning("datos.json no encontrado, se crea uno nuevo")
+        guardar_datos()
 
 def buscarProfesor(nombre):
-    if nombre in datos["profesores"]:
-        return datos["profesores"][nombre]["asignatura"]
+    if nombre in datos.get("profesores", {}):
+        return datos["profesores"][nombre].asignatura
     else:
         print("Este profesor no existe")
         return None
 
 def buscarAlumno(nombre):
     if nombre in datos["alumnos"]:
-        return datos["alumnos"][nombre]["nivel"],datos["alumnos"][nombre]["notas"]
+        return datos["alumnos"][nombre].nivel,datos["alumnos"][nombre].notas
     else:
         print("Este alumno no existe")
         return None
-
-
-
-
 
 
 print("----------------------------------------------")
@@ -285,7 +313,7 @@ try:
     opcion_elegido = int(input("Escribe el numero de tu opcion: "))
 except ValueError:
     opcion_elegido = 0
-    logging.error(f"La opcion elegido tiene que estar entre 1 y 5")
+    logging.error(f"La opcion elegido tiene que estar entre 1 y 3")
 
 if opcion_elegido == 1:
     administrador = Administrador("admin")
@@ -325,7 +353,12 @@ if opcion_elegido == 1:
                 nombre_alumno = input("Introduce el nombre del alumno ")
                 nivel = input("Introduce el nivel del alumno ")
                 if nombre_alumno.strip() != "" and nivel.strip() !="":
-                    alumno = Alumno(nombre_alumno,nivel)
+                    tipo = input("¿Es un alumno normal o especial? (n/e): ").strip().lower()
+                    if tipo == "e":
+                        beca = input("Introduce el valor de la beca: ").strip()
+                        alumno = AlumnoEspecial(nombre_alumno, nivel, beca)
+                    else:
+                        alumno = Alumno(nombre_alumno, nivel)
                     administrador.insertar_alumno(alumno)
                 else:
                     logging.error(f"El nombre del alumno y su nivel tienen que ser una cadena de letras")
@@ -376,7 +409,6 @@ elif opcion_elegido == 2:
                     profesor.anadir_notas(nombre)
             else:
                 profesor.borrar_notas()
-                guardar_datos()
             
         elif opcion_profesor == 3:
             profesor.imprimir_notas()
@@ -403,12 +435,11 @@ else:
         print("     3- Salir")
         try:
             nombreAlumno = input("Escribe tu nombre: ")
-            nivel = buscarAlumno(nombreAlumno)
-            if(buscarAlumno(nombreAlumno)):
-                nivel,notas =buscarAlumno(nombreAlumno)
-                alumno = Alumno(nombreAlumno,nivel,notas)
+            if nombreAlumno in datos["alumnos"]:
+                alumno = datos["alumnos"][nombreAlumno]
                 opcion_alumno = int(input("Escribe el numero de tu opcion: "))
             else:
+                print("Este Alumno no existe")
                 opcion_alumno = 3
         except ValueError:
             continue
