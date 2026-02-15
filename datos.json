@@ -34,6 +34,16 @@
                 7.5
             ],
             "tipo": "normal"
+        },
+        "Juanen": {
+            "nivel": "2DAW",
+            "notas": [
+                6.0,
+                4.0,
+                7.0
+            ],
+            "beca": "1700",
+            "tipo": "especial"
         }
     }
 }
